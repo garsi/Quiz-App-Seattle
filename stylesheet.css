@@ -1,0 +1,84 @@
+/* ==========================================================================
+   KAT'S MEOW
+   ========================================================================== */
+
+body {
+ 	font-size: 1em;
+ 	text-align: center;
+ 	background-color: #ecf0f1;
+ 	color: #ffffff;
+}
+
+h1 {
+	margin-top: 0;
+	padding: 25px;
+	background-color: #2ecc71;
+	border-bottom: 3px solid #1F894B;
+}
+
+h2 {
+	margin-top: -22px;
+	padding: 25px;
+	background-color: #27ae60;
+}
+
+a, a:visited {
+	color: #3498db;
+}
+
+button {
+	background-color: #3498db;
+	color: #ffffff;
+	border-radius: 5px;
+	padding: 10px;
+	border-top: 2px solid #3498db;
+	border-right: 2px solid #2966BA;
+	border-bottom: 2px solid #2966BA;
+	border-left: 2px solid #3498db;
+}
+
+button:hover,button:active {
+	opacity: .8;
+	border: 0;
+}
+
+main {
+	margin: auto;
+	width: 400px;
+	font-size: 1.2em;
+}
+
+form {
+	margin: 25px;
+	color: #000000;
+}
+
+ul {
+	padding: 0px;
+}
+
+li {
+	list-style-type: none;
+	margin: 2px auto;
+	height: 44px;
+	width: 300px;
+	border: 1px solid #8BCFA8;
+	background-color: #8BCFA8;
+	text-align: left;
+	line-height: 44px;
+
+}
+
+input[type="radio"] {
+	margin: 5px 10px;
+}
+
+.hide {
+	display: none;
+}
+
+#results {
+	font-size: 2em;
+	color: #2966BA;
+	font-family: helvetica, arial, sans-serif;
+}

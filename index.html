@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+</head>
+<body>
+	<header>
+		<h1>QUIZ: SEATTLE FACTS</h1>
+		<h2>How well do you know the Emerald City?</h2>
+		<button name="start" id="start">Start Quiz</button>
+	</header>
+	<main>
+		<div id="results"></div>
+		<form action="#" method="post" name="questions">
+			<label id="questions"></label>
+			<ul>
+				<li class="hide"><input type="radio" name="answer" value="0"><span id="option1"></span></li>
+				<li class="hide"><input type="radio" name="answer" value="1"><span id="option2"></span></li>
+				<li class="hide"><input type="radio" name="answer" value="2"><span id="option3"></span></li>
+				<li class="hide"><input type="radio" name="answer" value="3"><span id="option4"></span></li>
+			</ul>
+			<button class="hide" name="submit" id="submit">submit</button>
+		</form>
+	</main>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="quiz.js"></script>
+</body>
+</html>
