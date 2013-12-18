@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+	<meta property="og:title" content="Take a Seattle Quiz" />
+	<meta property="og:image" content="images/Seattle.jpg" />
 	<link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="stylesheet.css"/>
 </head>
@@ -11,10 +13,19 @@
 		<h2>How well do you know the Emerald City?</h2>
 		<button name="start" id="start">Start Quiz</button>
 	</header>
+	<aside>
+		<p id="theanswer"></p>
+		<div class="progress">Q1</div>
+		<div class="progress">Q2</div>
+		<div class="progress">Q3</div>
+		<div class="progress">Q4</div>
+		<div class="progress">Q5</div>
+	</aside>
+		<p id="results"></p>
 	<main>
-		<div id="results"></div>
 		<form action="#" method="post" name="questions">
-			<label id="questions"></label>
+			<p><span id="error"</span></p>
+			<p><span id="number"></span>&nbsp;<label id="questions"></label></p>
 			<ul>
 				<li class="hide"><input type="radio" name="answer" value="0"><span id="option1"></span></li>
 				<li class="hide"><input type="radio" name="answer" value="1"><span id="option2"></span></li>

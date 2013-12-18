@@ -23,52 +23,73 @@ $(document).ready(function() {
 			answer: 2 }
 			];
 
+
+//TESTING
+	console.log(questions[1].options[2]);
+
+
 //Create variable for number of correct answers to start at 0
 	var score = 0
 
 //Create variable for the current question to start at 0
 	var currentQuestion = 0
 
+//Create variable for the current question to start at 1
+	var questionNumber = 1
+
 
 //Push first set of questions to page when button clicked
-//NOTE: run option stuff in a loop ...  $('#option1).val(0);
-//NOTE: run append in seperate function that loops all questions starting with question "0"
 	$('#start').click(function(e){
 		e.preventDefault();
-		$('#questions').append(questions[0].question);
-		$('#option1').append(questions[currentQuestion].options[0]);
-		$('#option2').append(questions[currentQuestion].options[1]);
-		$('#option3').append(questions[currentQuestion].options[2]);
-		$('#option4').append(questions[currentQuestion].options[3]);
 		$('li').removeClass('hide');
 		$('button').removeClass('hide');
 		$('#start').remove();
+		nextSet();
 		});
 
 
 //Save guess with user submission as a value
 	$('#submit').on('click', function (e) {
 		e.preventDefault();
-        var Guess = (+$('input[name="answer"]:checked').val());
-        console.log(Guess);
-        checkGuess(Guess)
+        var guess = (+$('input[name="answer"]:checked').val());
+        $('input[name="answer"]:checked').attr('checked', false);
+        console.log(guess);
+        validate(guess);
 });
+
+
+//Validate user has selected an answer
+	function validate(guess) {
+		if(isNaN(guess)) {
+			$('#error').html("<em>Oops, you didn't select an answer. Please try again.</em></br>");
+	  	} else {
+		  	console.log("Item validated");
+		  	$('#error').html('');
+		  	checkGuess(guess);
+	  	}
+	}
 
 	   
 //Check guess against actual answer
-	function checkGuess(Guess) {
+	function checkGuess(guess) {
 		console.log("run: right or wrong?");
 		console.log(currentQuestion);
-		if (Guess === questions[currentQuestion].answer) {
+		if (guess === questions[currentQuestion].answer) {
 			console.log("right!");
 			score++;
 			console.log(score);
 			currentQuestion++
-			nextSet()
+			questionNumber++
+			$('.progress').eq(currentQuestion-1).addClass('progressright');
+			$('#theanswer').text("Nice! " + questions[currentQuestion-1].options[questions[currentQuestion-1].answer] + " was correct.");
+			nextSet();
 		} else {
-			console.log("wrong!")
+			console.log("wrong!");
 			currentQuestion++
-			nextSet()
+			questionNumber++
+			$('.progress').eq(currentQuestion-1).addClass('progresswrong');
+			$('#theanswer').text("Bummer! " + questions[currentQuestion-1].options[questions[currentQuestion-1].answer] + " was correct.");
+			nextSet();
 		}
 	}
 
@@ -77,13 +98,15 @@ $(document).ready(function() {
 	function nextSet() {
 		if(currentQuestion<=4) {
 			console.log("run: next set of questions")
+			$('.progress').eq(currentQuestion).addClass('progresson');
+			$('#number').text("Q" + questionNumber + ")");
 			$('#questions').text(questions[currentQuestion].question);
-			$('#option1').text(questions[currentQuestion].options[0]);
-			$('#option2').text(questions[currentQuestion].options[1]);
-			$('#option3').text(questions[currentQuestion].options[2]);
-			$('#option4').text(questions[currentQuestion].options[3]);
+			var optionslen=questions[currentQuestion].options.length;
+			for(var i=0, j=1; i<=optionslen; i++, j++){
+				$('#option'+j).text(questions[currentQuestion].options[i]);
+			}
 		} else {
-			results()
+			results();
 		}
 	}
 
@@ -94,6 +117,7 @@ $(document).ready(function() {
 		$('#questions').addClass('hide');
 		$('li').addClass('hide');
 		$('button').addClass('hide');
+		$('#number').addClass('hide');
 		$('#results').html('You got ' + score + ' out of 5 correct!<br><br><a href="http://garsi.github.io/Quiz-App-Seattle">Restart Quiz</a>');
 	}
 

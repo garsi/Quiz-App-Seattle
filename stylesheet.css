@@ -48,8 +48,14 @@ main {
 	font-size: 1.2em;
 }
 
+#error {
+	height: 88px;
+	width: 300px;
+	color: #d35400;
+}
+
 form {
-	margin: 25px;
+	margin: 45px;
 	color: #000000;
 }
 
@@ -77,8 +83,37 @@ input[type="radio"] {
 	display: none;
 }
 
+aside {
+	margin: auto;
+	width: 350px;
+	color: #000000;
+}
+
+.progress {
+	margin: 0px 5px;
+	height: 25px;
+	width: 60px;
+	float: left;
+	line-height: 25px;
+	color: #ffffff;
+	background-color: #95a5a6;
+}
+
+.progresson {
+	background-color: #9b59b6;
+}
+
+.progressright {
+	background-color: #27ae60;
+}
+
+.progresswrong { 
+	background-color: #c0392b;
+}
+
 #results {
+	margin-top: 80px;
+	font-family: helvetica, arial, sans-serif;
 	font-size: 2em;
 	color: #2966BA;
-	font-family: helvetica, arial, sans-serif;
 }
